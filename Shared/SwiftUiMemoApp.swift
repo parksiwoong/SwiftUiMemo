@@ -13,7 +13,7 @@ struct SwiftUiMemoApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainListView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
