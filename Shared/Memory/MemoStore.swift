@@ -9,7 +9,7 @@ import Foundation       // 메모목록 저장하는 클래스 구현
 
 class MemoStore: ObservableObject{
     @Published var list: [Memo] //@Published 앞에 적으면 배열을 업데이트할때마다 바인딩 돼 있는 뷰도 자동으로 업뎃
-    
+    //옵져버블오브젝트로 선언하면 퍼블리시드로 선언한 속성이 바뀔때마다 뷰가 자동으로 업데이트 됨
     init(){
         list = [
             Memo(content: "Hello", insertDate: Date.now)
