@@ -13,8 +13,6 @@
 		45B780352887D51C003DE14B /* SwiftUiMemo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 45B780212887D51A003DE14B /* SwiftUiMemo.xcdatamodeld */; };
 		45B780362887D51C003DE14B /* SwiftUiMemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B780232887D51A003DE14B /* SwiftUiMemoApp.swift */; };
 		45B780372887D51C003DE14B /* SwiftUiMemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B780232887D51A003DE14B /* SwiftUiMemoApp.swift */; };
-		45B7803A2887D51C003DE14B /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B780252887D51A003DE14B /* Persistence.swift */; };
-		45B7803B2887D51C003DE14B /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B780252887D51A003DE14B /* Persistence.swift */; };
 		45B7803C2887D51C003DE14B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45B780262887D51C003DE14B /* Assets.xcassets */; };
 		45B7803D2887D51C003DE14B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45B780262887D51C003DE14B /* Assets.xcassets */; };
 		45B780472887D58C003DE14B /* MainListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B780462887D58C003DE14B /* MainListView.swift */; };
@@ -27,13 +25,14 @@
 		45B780542887F70C003DE14B /* MemoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B780522887F70C003DE14B /* MemoCell.swift */; };
 		45B78056288942B8003DE14B /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B78055288942B7003DE14B /* DetailView.swift */; };
 		45B78057288942B8003DE14B /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B78055288942B7003DE14B /* DetailView.swift */; };
+		45FA90B8288BD60300549CD1 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FA90B7288BD60300549CD1 /* CoreDataManager.swift */; };
+		45FA90B9288BD60300549CD1 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FA90B7288BD60300549CD1 /* CoreDataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		456EFCEA288839010083E389 /* ComposeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeView.swift; sourceTree = "<group>"; };
 		45B780222887D51A003DE14B /* Shared.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared.xcdatamodel; sourceTree = "<group>"; };
 		45B780232887D51A003DE14B /* SwiftUiMemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUiMemoApp.swift; sourceTree = "<group>"; };
-		45B780252887D51A003DE14B /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		45B780262887D51C003DE14B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		45B7802B2887D51C003DE14B /* SwiftUiMemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUiMemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45B780312887D51C003DE14B /* SwiftUiMemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUiMemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -43,6 +42,7 @@
 		45B7804E2887D7DC003DE14B /* MemoStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoStore.swift; sourceTree = "<group>"; };
 		45B780522887F70C003DE14B /* MemoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoCell.swift; sourceTree = "<group>"; };
 		45B78055288942B7003DE14B /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		45FA90B7288BD60300549CD1 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,8 +104,8 @@
 		45B780492887D5AD003DE14B /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				45B780252887D51A003DE14B /* Persistence.swift */,
 				45B780212887D51A003DE14B /* SwiftUiMemo.xcdatamodeld */,
+				45FA90B7288BD60300549CD1 /* CoreDataManager.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -233,9 +233,9 @@
 				45B780342887D51C003DE14B /* SwiftUiMemo.xcdatamodeld in Sources */,
 				45B7804F2887D7DC003DE14B /* MemoStore.swift in Sources */,
 				45B780472887D58C003DE14B /* MainListView.swift in Sources */,
-				45B7803A2887D51C003DE14B /* Persistence.swift in Sources */,
 				456EFCEB288839010083E389 /* ComposeView.swift in Sources */,
 				45B780362887D51C003DE14B /* SwiftUiMemoApp.swift in Sources */,
+				45FA90B8288BD60300549CD1 /* CoreDataManager.swift in Sources */,
 				45B7804C2887D6D0003DE14B /* Memo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -249,9 +249,9 @@
 				45B780352887D51C003DE14B /* SwiftUiMemo.xcdatamodeld in Sources */,
 				45B780502887D7DD003DE14B /* MemoStore.swift in Sources */,
 				45B780482887D58C003DE14B /* MainListView.swift in Sources */,
-				45B7803B2887D51C003DE14B /* Persistence.swift in Sources */,
 				456EFCEC288839010083E389 /* ComposeView.swift in Sources */,
 				45B780372887D51C003DE14B /* SwiftUiMemoApp.swift in Sources */,
+				45FA90B9288BD60300549CD1 /* CoreDataManager.swift in Sources */,
 				45B7804D2887D6D0003DE14B /* Memo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

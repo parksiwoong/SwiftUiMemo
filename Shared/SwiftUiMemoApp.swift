@@ -10,12 +10,12 @@ import SwiftUI
 @main
 struct SwiftUiMemoApp: App {
     @StateObject var store = MemoStore() // 메모저장소에서 모두 사용할 수 있도록
-    let persistenceController = PersistenceController.shared
+    let magager = CoreDataManager.shared
 
     var body: some Scene {
         WindowGroup {
             MainListView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                .environment(\.managedObjectContext, magager.mainContext)
                 .environmentObject(store)
         }
     }
