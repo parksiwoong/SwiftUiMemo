@@ -8,21 +8,22 @@
 import SwiftUI
 
 struct DetailView: View {
-    @ObservedObject var memo: Memo
-    @EnvironmentObject var store: MemoStore
+    @ObservedObject var memo: MemoEntity
+    @EnvironmentObject var manager: CoreDataManager
     @State private var showComposer = false // bool 속성 필요
-    
+    @State private var showDeleteAlert = false
+    @Environment(\.dismiss) var dismiss
     var body: some View {
         VStack{
             ScrollView{
                 VStack{
                     HStack {
-                        Text(memo.content)
+                        Text(memo.content ?? "")
                             .padding()
                         
                         Spacer(minLength: 0)
                     }
-                    Text(memo.insertDate, style: .date)
+                    Text(memo.insertDate ?? .now, style: .date)
                         .padding()
                         .font(.footnote)
                         .foregroundColor(.secondary)
@@ -33,6 +34,23 @@ struct DetailView: View {
         .navigationBarTitleDisplayMode(.inline) //라지타이틀 모드는 사용하지 않을거니 인라인으로
         .toolbar{
             ToolbarItemGroup(placement: .bottomBar){
+                Button{
+                    showDeleteAlert = true
+                }label: {
+                    Image(systemName:  "trash")
+                }
+                .foregroundColor(.red)
+                    .alert("삭제확인", isPresented: $showDeleteAlert){
+                        Button(role: .destructive) {
+                            manager.delete(memo: memo)
+                            //dismiss()
+                        } label: {
+                            Text("삭제")
+                        }
+                    }message: {
+                        Text("메모를 삭제할까요?")
+                    }
+                
                 Button{
                     showComposer = true
                 } label: {
@@ -49,8 +67,9 @@ struct DetailView: View {
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView{
-            DetailView(memo: Memo(content: "Hello"))
-                .environmentObject(MemoStore())
+            DetailView(memo: MemoEntity(context:
+                CoreDataManager.shared.mainContext))
+                    .environmentObject(CoreDataManager.shared)
         }
        
     }

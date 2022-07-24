@@ -3,7 +3,7 @@
 //  SwiftUiMemo
 //
 //  Created by si woong park on 2022/07/23.
-//
+//  코어데이터를 사용해서 list를 안쓰고 영구적으로 데이터가 유지되도록 하는 목적의 파일
 
 import Foundation
 import CoreData
@@ -46,9 +46,6 @@ class CoreDataManager: ObservableObject {
         newMemo.insertDate = Date.now
         
     }
-    // 속성이 초기화되면서 자동으로 데이터를 읽어오는 코드
-    @FetchRequest(sortDescriptors: [SortDescriptor(\MemoEntity.insertDate, order: .reverse)])
-    var memoList: FetchedResults<MemoEntity>
     
     //업데이트 메소드 구현
     func update(memo: MemoEntity? ,  content: String){
