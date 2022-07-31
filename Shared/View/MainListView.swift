@@ -17,6 +17,7 @@ struct MainListView: View {
     var memoList: FetchedResults<MemoEntity>
     
     @State private var keyword = ""
+    @State private var sortByDateDesc = true //트루가 되면 내림차순 할생각
     
     var body: some View {
         NavigationView {
@@ -33,10 +34,17 @@ struct MainListView: View {
             .listStyle(.plain)
             .navigationTitle("내 메모")
             .toolbar{
-                Button{
-                    showComposer = true
-                } label: {
-                    Image(systemName: "plus")
+                HStack {
+                    Button{
+                        showComposer = true
+                    } label: {
+                        Image(systemName: "plus")
+                    }
+                    Button{
+                        sortByDateDesc.toggle()
+                    }label: {
+                        Image(systemName: "arrow.up.arrow.down") //화살표이미지
+                    }
                 }
             }
             .sheet(isPresented: $showComposer){
@@ -51,6 +59,17 @@ struct MainListView: View {
                            memoList.nsPredicate = NSPredicate(format:
                                 "content CONTAINS[c] %@" , newValue)
                        }
+            }
+            .onChange(of: sortByDateDesc){desc in
+                if desc {
+                    memoList.sortDescriptors = [
+                        SortDescriptor(\.insertDate, order: .reverse)
+                    ]
+                } else{
+                    memoList.sortDescriptors = [
+                        SortDescriptor(\.insertDate,order: .forward)
+                    ]
+                }
             }
         }
         
